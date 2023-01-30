@@ -29,6 +29,7 @@ public class quickSort {
                 arr[i] = temp;
             }   
         }
+        
         i++;
         int temp=arr[i];
         arr[i] = arr[ei];

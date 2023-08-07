@@ -11,22 +11,6 @@ public class b7_subTree {
         }
     }
     
-    static class binaryTree{
-        static int idx=-1;
-
-        public static node build(int nodes[]){
-            idx++;
-            if(nodes[idx]==-1){
-                return null;
-            }
-            node newNode = new node(nodes[idx]);
-            newNode.left = build(nodes);
-            newNode.right = build(nodes);
-
-            return newNode;
-        }
-    }
-    
     static boolean isIdentical(node root, node sub){
         if(root == null && sub == null){
             return true;
@@ -40,6 +24,7 @@ public class b7_subTree {
         if(!isIdentical(root.right, sub.right)){
             return false;
         }
+        return true;
     }
     
     static boolean isSubTree(node root, node sub){
@@ -52,26 +37,34 @@ public class b7_subTree {
                 return true;
             }
         }
+        return isSubTree(root.left, sub) || isSubTree(root.right, sub);
     }
     public static void main(String[] args) {
-        int nodes[] = {1,2,4,7,-1,-1,-1,5,-1,-1,3,-1,6,-1,-1};
-        int subNodes[] = {2,4,-1,-1,5,-1,-1};
-
-        //       1
-        //      / \
-        //     2   3
-        //    / \   \
-        //   4   5   6
-        //  / \
-        // -1 -1
-
-        binaryTree bt = new binaryTree();
-        node root = bt.build(nodes);
-
-        node sub = bt.build(subNodes);
 
 
-        System.out.println(root.data);
+        //          1                   2
+        //         / \                 / \
+        //        2   3               4   5
+        //       / \   \
+        //      4   5   6
+        //     / \
+        //    -1 -1
+
+
+        node root = new node(1);
+        root.left = new node(2);
+        root.left.left = new node(4);
+        root.left.right = new node(5);
+        root.right = new node(3);
+        root.right.right = new node(6);
+
+
+        node sub = new node(2);
+        sub.left = new node(4);
+        sub.right = new node(5);
+
+
+        System.out.println(isSubTree(root, sub));
 
     }
 }

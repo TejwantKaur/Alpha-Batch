@@ -13,7 +13,7 @@ public class b1_buildTree {
     static class binaryTree{
         static int idx=-1;
 
-        public static node build(int nodes[]){
+        public node build(int nodes[]){
             idx++;
             if(nodes[idx]==-1){
                 return null;

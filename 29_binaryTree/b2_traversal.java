@@ -15,7 +15,7 @@ public class b2_traversal {
     static class binaryTree{
         static int idx = -1;
 
-        public static node build(int[] nodes){
+        public node build(int[] nodes){
             idx++;
             if(nodes[idx] == -1){
                 return null;
@@ -30,7 +30,7 @@ public class b2_traversal {
     }
 
     static class traversing{
-        private static void preOrder(node rootNode) {
+        private void preOrder(node rootNode) {
         if(rootNode == null){
             return;
         }
@@ -40,7 +40,7 @@ public class b2_traversal {
         preOrder(rootNode.right);
         }
         
-        private static void inOrder(node rootNode) {
+        private void inOrder(node rootNode) {
             if(rootNode == null){
                 return;
             }
@@ -50,7 +50,7 @@ public class b2_traversal {
             inOrder(rootNode.right);
         }
         
-        private static void postOrder(node rootNode) {
+        private void postOrder(node rootNode) {
             if(rootNode == null){
                 return;
             }
@@ -60,7 +60,7 @@ public class b2_traversal {
             System.out.print(rootNode.data + " ");
         }
         
-        private static void levelOrder(node rootNode){
+        private void levelOrder(node rootNode){
             
             if(rootNode == null){
                 return;

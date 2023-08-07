@@ -15,7 +15,8 @@ public class b6_diameter {
     
     static class binaryTree{
         static int idx=-1;
-        public static node build(int nodes[]){
+        
+        public node build(int nodes[]){
             idx++;
             
             if(nodes[idx]==-1){
@@ -90,7 +91,7 @@ public class b6_diameter {
     }
     public static void main(String[] args) {
         int nodes[] = {1,2,4,8,9,-1,-1,-1,-1,5,-1,6,-1,7,-1,-1,3,-1,-1}; //7
-        int nodes2[] = {1,2,4,8,-1,-1,-1,5,-1,6,-1,7,-1,-1,3,-1,-1}; //6
+        // int nodes2[] = {1,2,4,8,-1,-1,-1,5,-1,6,-1,7,-1,-1,3,-1,-1}; //6
 
 
     //           1

@@ -15,7 +15,7 @@ public class b5_countNodes {
     static class binaryTree{
         static int idx=-1;
 
-        public static node build(int nodes[]){
+        public node build(int nodes[]){
             idx++;
             if(nodes[idx]==-1){
                 return null;
@@ -39,7 +39,7 @@ public class b5_countNodes {
     }
 
     public static void main(String[] args) {
-        int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        // int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         
         int nodes2[] = {1,2,4,-1,-1,5,-1,6,-1,7,-1,-1,3,-1,-1};
 

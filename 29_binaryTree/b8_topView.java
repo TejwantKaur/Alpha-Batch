@@ -4,7 +4,6 @@ import java.util.Queue;
 
 public class b8_topView {
 
-
     static class node{
         int data; 
         node left;

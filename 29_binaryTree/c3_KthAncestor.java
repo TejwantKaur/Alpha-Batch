@@ -1,4 +1,4 @@
-public class b9_printKlevel {
+public class c3_KthAncestor {
     
     static class node{
         int data;
@@ -11,19 +11,29 @@ public class b9_printKlevel {
             this.right = null;
         }
     }
+    
+    static int KthAnc(node root,int n, int k){
+        if(root == null){
+            return -1;
+        }
+        if(root.data == n){ return 0;}
 
-    static void printKlevel(node root, int lvl, int k){
-        if (root == null){
-            return;
+        int lDis = KthAnc(root.left, n, k);
+        int rDis = KthAnc(root.right, n, k);
+
+        if(lDis == -1 && rDis == -1){
+            return -1;
         }
-        if(lvl == k){
-            System.out.print(root.data + " ");
-            return;
+        int max = Math.max(lDis, rDis);
+
+        if(max+1 == k){
+            System.out.println(root.data);
+            // return root.data;
         }
-        printKlevel(root.left, lvl+1, k);
-        printKlevel(root.right, lvl+1, k);
+        return max+1;
     }
-    public static void main(String args[]){
+    public static void main(String[] args) {
+
         //           1                   
         //         /   \                
         //        2     3              
@@ -38,8 +48,6 @@ public class b9_printKlevel {
         root.right.left = new node(6);
         root.right.right = new node(7);
 
-        int k=3;
-        printKlevel(root,1,k);
+        KthAnc(root, 4, 1);
     }
-    
 }

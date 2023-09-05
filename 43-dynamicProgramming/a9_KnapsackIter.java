@@ -1,4 +1,5 @@
 public class a9_KnapsackIter {
+    
     public static int knapsack(int[] val, int[] wt, int W){
         int n = val.length;
         int dp[][] = new int [n + 1][W + 1];
@@ -10,19 +11,18 @@ public class a9_KnapsackIter {
             dp[0][j] = 0;
         }
 
-        for(int i=1; i<dp.length; i++){
-            for(int j=1; j<dp[0].length; j++){
-                // valid
-                if(wt[i-1] <= j){
+        for(int i=1; i<n+1; i++){
+            for(int j=1; j<W+1; j++){
+                
+                if(wt[i-1] <= j){ // valid
                     // include
-                    int incProfit = val[i - 1] + dp[i-1][j - wt[i-1]];
+                    int ans1 = val[i-1] + dp[i-1][j-wt[i-1]];
                     // exclude
-                    int excProfit = dp[i - 1][j];
-                    dp[i][j] = Math.max(incProfit, excProfit);
+                    int ans2 = dp[i-1][j];
+                    dp[i][j] = Math.max(ans1, ans2);
                 }
-                // not-valid
-                else{
-                    dp[i][j] = dp[i - 1][j];
+                else{  // not-valid
+                    dp[i][j] = dp[i-1][j];
                 }
             }
         }

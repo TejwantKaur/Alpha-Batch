@@ -1,6 +1,7 @@
 public class a8_KnapsackMem {
     private static int maxProfitMem(int[] val, int[] wt, int W, int n, int[][] dp) {
 //        int n = val.length; int m = wt.length;
+        
         if(n == 0 || W == 0){
             return 0;
         }

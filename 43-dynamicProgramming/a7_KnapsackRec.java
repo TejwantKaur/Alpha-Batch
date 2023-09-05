@@ -1,25 +1,25 @@
 public class a7_KnapsackRec {
-    private static int maxProfit(int[] val, int[] wt, int W, int idx) {
-        if(idx==0 || W == 0) {
+    private static int knapsack(int[] val, int[] wt, int W, int n) {
+        if(n==0 || W == 0) {
             return 0;
         }
         // valid
-        int n = idx-1;
-        if(wt[n] <= W) {
+        // int n = idx-1;
+        if(wt[n-1] <= W) {
             // include
-            int ans1 = val[n] + maxProfit(val, wt, W - wt[n], n);
+            int ans1 = val[n-1] + knapsack(val, wt, W - wt[n-1], n-1);
             // exclude
-            int ans2 = maxProfit(val, wt, W, n);
+            int ans2 = knapsack(val, wt, W, n-1);
             return Math.max(ans1, ans2);
         }
         // not-valid
-        return maxProfit(val, wt, W, n);
+        return knapsack(val, wt, W, n-1);
     }
     public static void main(String[] args) {
         int val[] = {15, 14, 10, 45, 30};
         int wt[] = {2 ,5 ,1 ,3 ,4};
         int W = 7;
 
-        System.out.println(maxProfit(val, wt, W, val.length));
+        System.out.println(knapsack(val, wt, W, val.length));
     }
 }
